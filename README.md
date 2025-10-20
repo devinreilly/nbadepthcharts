@@ -2,8 +2,8 @@
 # No‑Fuss NBA Lineups (East/West + Healthy Page)
 
 ## Files
-- `index.html` — Last‑game lineups, split East/West, alphabetized.
-- `healthy.html` — “No injuries/suspensions” lineups, same layout.
+- `index.html` — Last‑game starters, split East/West, alphabetized.
+- `healthy.html` — “No injuries/suspensions” starters, same layout.
 - `style.css` — Shared CSS
 - `lineups.json` — You update only this.
 
