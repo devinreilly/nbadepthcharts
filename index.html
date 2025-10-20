@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NBA Starting Lineups — Last Game</title>
+  <meta name="description" content="Plain, fast, no‑ads NBA starting lineups. Split by conference, alphabetized. Last game only." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>NBA Starting Lineups — Last Game</h1>
+    <div class="sub">Split by conference. Alphabetized. Manual updates only.</div>
+    <div class="nav">
+      <a href="./index.html" aria-current="page">Last Game</a>
+      <a href="./healthy.html">No Injuries/Suspensions</a>
+    </div>
+    <div id="meta" class="badge" aria-live="polite"></div>
+    <div class="controls">
+      <input id="search" type="search" placeholder="Search team or player…" aria-label="Search team or player">
+    </div>
+    <div id="warnings"></div>
+  </div>
+</header>
+<main class="container">
+  <div class="section" id="east">
+    <h2>Eastern Conference</h2>
+    <table aria-describedby="meta">
+      <thead>
+        <tr>
+          <th>Team</th>
+          <th class="hide-sm">Date</th>
+          <th>PG</th><th>SG</th><th>SF</th><th>PF</th><th>C</th>
+          <th class="hide-sm">Notes</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <div class="section" id="west">
+    <h2>Western Conference</h2>
+    <table aria-describedby="meta">
+      <thead>
+        <tr>
+          <th>Team</th>
+          <th class="hide-sm">Date</th>
+          <th>PG</th><th>SG</th><th>SF</th><th>PF</th><th>C</th>
+          <th class="hide-sm">Notes</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</main>
+<footer><div class="container">Unaffiliated with the NBA. Names for informational purposes.</div></footer>
+<script>
+const S = { data:null };
+function el(tag, attrs={}, kids=[]){const e=document.createElement(tag);for(const[k,v]of Object.entries(attrs)){if(k==='class')e.className=v;else if(k==='text')e.textContent=v;else e.setAttribute(k,v);}for(const c of[].concat(kids))e.append(c);return e;}
+function fmtDate(s){if(!s)return '—';const d=new Date(s);if(isNaN(d))return s;const y=d.getFullYear(),m=(''+(d.getMonth()+1)).padStart(2,'0'),day=(''+d.getDate()).padStart(2,'0');return `${y}-${m}-${day}`;}
+function renderTable(sectionId, teams){const tbody=document.querySelector(`#${sectionId} tbody`);tbody.innerHTML='';for(const t of teams){const lg=(t.last_game?.lineup||[]);const row=el('tr',{},[
+  el('td',{class:'team',text:`${t.name} (${t.id})`}),
+  el('td',{class:'date hide-sm',text:fmtDate(t.last_game?.date||'')}),
+  ...['PG','SG','SF','PF','C'].map(p=>el('td',{class:'pos',text:(lg.find(x=>x.pos===p)||{}).player||'—'})),
+  el('td',{class:'notes hide-sm',text:(t.last_game?.notes)||' '})
+]);tbody.append(row);}}
+function render(){const q=document.getElementById('search').value.trim().toLowerCase();const teams=S.data.teams.slice().sort((a,b)=>a.name.localeCompare(b.name));const east=teams.filter(t=>t.conf==='East');const west=teams.filter(t=>t.conf==='West');const filter=arr=>arr.filter(t=>!q||(`${t.name} ${t.id} ${(t.last_game?.lineup||[]).map(p=>p.player).join(' ')}`.toLowerCase().includes(q)));renderTable('east',filter(east));renderTable('west',filter(west));document.getElementById('meta').textContent=`Season ${S.data?.meta?.season||''} · Last updated ${fmtDate(S.data?.meta?.last_updated)} · Teams: ${S.data?.teams?.length||0}`;}
+async function init(){try{const res=await fetch('lineups.json',{cache:'no-cache'});S.data=await res.json();}catch(e){document.getElementById('warnings').innerHTML='<div class="warn">Could not load lineups.json.</div>';}render();document.getElementById('search').addEventListener('input',render);}
+init();
+</script>
+</body>
+</html>

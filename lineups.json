@@ -1,0 +1,170 @@
+{
+  "meta": {
+    "season": 2025,
+    "last_updated": "2025-10-09"
+  },
+  "teams": [
+    {
+      "id": "BOS",
+      "name": "Boston Celtics",
+      "conf": "East",
+      "default_lineup": [
+        {
+          "pos": "PG",
+          "player": "Player A"
+        },
+        {
+          "pos": "SG",
+          "player": "Player B"
+        },
+        {
+          "pos": "SF",
+          "player": "Player C"
+        },
+        {
+          "pos": "PF",
+          "player": "Player D"
+        },
+        {
+          "pos": "C",
+          "player": "Player E"
+        }
+      ],
+      "last_game": {
+        "date": "2025-09-28",
+        "opponent": "NYK",
+        "lineup": [
+          {
+            "pos": "PG",
+            "player": "Player A"
+          },
+          {
+            "pos": "SG",
+            "player": "Player B"
+          },
+          {
+            "pos": "SF",
+            "player": "Player C"
+          },
+          {
+            "pos": "PF",
+            "player": "Player D"
+          },
+          {
+            "pos": "C",
+            "player": "Player E"
+          }
+        ],
+        "notes": ""
+      }
+    },
+    {
+      "id": "NYK",
+      "name": "New York Knicks",
+      "conf": "East",
+      "default_lineup": [
+        {
+          "pos": "PG",
+          "player": "Player F"
+        },
+        {
+          "pos": "SG",
+          "player": "Player G"
+        },
+        {
+          "pos": "SF",
+          "player": "Player H"
+        },
+        {
+          "pos": "PF",
+          "player": "Player I"
+        },
+        {
+          "pos": "C",
+          "player": "Player J"
+        }
+      ],
+      "last_game": {
+        "date": "2025-09-28",
+        "opponent": "BOS",
+        "lineup": [
+          {
+            "pos": "PG",
+            "player": "Player F"
+          },
+          {
+            "pos": "SG",
+            "player": "Player G"
+          },
+          {
+            "pos": "SF",
+            "player": "Player H"
+          },
+          {
+            "pos": "PF",
+            "player": "Player I"
+          },
+          {
+            "pos": "C",
+            "player": "Player J"
+          }
+        ],
+        "notes": ""
+      }
+    },
+    {
+      "id": "LAL",
+      "name": "Los Angeles Lakers",
+      "conf": "West",
+      "default_lineup": [
+        {
+          "pos": "PG",
+          "player": "Player K"
+        },
+        {
+          "pos": "SG",
+          "player": "Player L"
+        },
+        {
+          "pos": "SF",
+          "player": "Player M"
+        },
+        {
+          "pos": "PF",
+          "player": "Player N"
+        },
+        {
+          "pos": "C",
+          "player": "Player O"
+        }
+      ],
+      "last_game": {
+        "date": "",
+        "opponent": "",
+        "lineup": [
+          {
+            "pos": "PG",
+            "player": "Player K"
+          },
+          {
+            "pos": "SG",
+            "player": "Player L"
+          },
+          {
+            "pos": "SF",
+            "player": "Player M"
+          },
+          {
+            "pos": "PF",
+            "player": "Player N"
+          },
+          {
+            "pos": "C",
+            "player": "Player O"
+          }
+        ],
+        "notes": "Season not started (example)."
+      }
+    }
+  ]
+}
