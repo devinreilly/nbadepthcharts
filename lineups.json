@@ -1,7 +1,7 @@
 {
   "meta": {
     "season": 2025,
-    "last_updated": "2025-10-09"
+    "last_updated": "2025-10-20"
   },
   "teams": [
     {
@@ -11,23 +11,23 @@
       "default_lineup": [
         {
           "pos": "PG",
-          "player": "Player A"
+          "player": "Derrick White"
         },
         {
           "pos": "SG",
-          "player": "Player B"
+          "player": "Anfernee Simons"
         },
         {
           "pos": "SF",
-          "player": "Player C"
+          "player": "Jaylen Brown"
         },
         {
           "pos": "PF",
-          "player": "Player D"
+          "player": "Sam Hauser"
         },
         {
           "pos": "C",
-          "player": "Player E"
+          "player": "Neemias Queta"
         }
       ],
       "last_game": {
